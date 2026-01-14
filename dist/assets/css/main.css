@@ -74,6 +74,9 @@ h1, h2, h3, h4, h5, h6 {
 .d-flex{
     display: flex;
 }
+.fd-colum{
+    flex-direction: column;
+}
 .jc-center{
     justify-content: center;
 }
@@ -149,16 +152,121 @@ h1, h2, h3, h4, h5, h6 {
 .fs-3{
     font-size: 3em;
 }
-
-
+.ta-center{
+    text-align: center;
+}
+/*Colores fondo*/
+.bordo{
+    background-color: #4C0303;
+}
+.marron{
+    background-color: #481E02;
+}
+.marron-c{
+    background-color: #7B5A45;
+}
+.marron-c2{
+    background-color: #B0886D;
+}
+.beige{
+    background-color: #E7D0C2;
+}
+.white{
+    background-color: #F6F0ED;
+}
+.black{
+    background-color: #10100F;
+}
+/*Colores*/
+.c-bordo{
+    color: #4C0303;
+}
+.c-marron{
+    color: #481E02;
+}
+.c-marron-c{
+    color: #7B5A45;
+}
+.c-marron-c2{
+    color: #B0886D;
+}
+.c-beige{
+    color: #E7D0C2;
+}
+.c-white{
+    color: #F6F0ED;
+}
+.c-black{
+    color: #10100F;
+}
 /*Clases del html*/
 .section-header{
     background-color: rgb(63, 72, 72);
     height: 8vh;
 }
 
+/*SLIDER*/
+.slider{
+    height: 100vh;
+    background-image: url("../images/slider.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*Estilos de las card pagina1*/
 
 
-img{
-    width: 40em;
+/* Section cafeteria*/
+.section-cafeteria{
+    margin: 3em 0;
+}
+
+.title--cafeteria{
+    color: rgb(106, 106, 214);
+    font-size: 2em;
+}
+.image--cafeteria{
+    width: 20em;
+}
+.btn--cafeteria{
+    border: none;
+    border-radius: 2em;
+    background-color: #481E02;
+    padding: 0.5em;
+    color: #E7D0C2;
+}
+.info--cafeteria{
+    padding: 1em;
+}
+
+
+
+.card {
+  border: 1px solid rgb(162, 162, 162);
+  border-radius: 2em;
+  margin:0.5em;
+  overflow: hidden;
+  width: 20%;
+}
+.container-info{
+    padding: 1em;
+}
+.prices{
+
+}
+.btn{
+border: none;
+border-radius: 2em;
+background-color: #481E02;
+padding: 0.5em;
+color: #E7D0C2;
+}
+.title {
+  color: rgb(106, 106, 214);
+  font-size: 2em;
+}
+.image{
+    width: 20em;
+    
 }

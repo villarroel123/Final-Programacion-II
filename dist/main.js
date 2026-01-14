@@ -49,19 +49,34 @@ init();
 function createGalleries(products, section) {
     products.forEach(product => {
         const card = document.createElement("article");
+        const img = document.createElement("img");
+        const containerInfo = document.createElement("div");
         const title = document.createElement("h4");
         const prices = document.createElement("h5");
-        const img = document.createElement("img");
         const description = document.createElement("p");
+        //creo boton
+        const btn = document.createElement("button");
+        //agrego clases diferentes segun categorias
+        const categoryClass = product.category;
+        card.classList.add("card", `card--${categoryClass}`);
+        containerInfo.classList.add(`info--${categoryClass}`);
+        title.classList.add("title", `title--${categoryClass}`);
+        prices.classList.add("price", `price--${categoryClass}`);
+        img.classList.add("image", `image--${categoryClass}`);
+        description.classList.add("description", `description--${categoryClass}`);
+        btn.classList.add("btn", `btn--${categoryClass}`);
         //agrego datos
         title.textContent = product.name;
         prices.textContent = `$${product.price}`;
         img.src = product.image;
         description.textContent = product.description;
-        card.appendChild(title);
-        card.appendChild(prices);
+        btn.textContent = "Agregar al carrito";
         card.appendChild(img);
-        card.appendChild(description);
+        containerInfo.appendChild(title);
+        containerInfo.appendChild(description);
+        containerInfo.appendChild(prices);
+        containerInfo.appendChild(btn);
+        card.appendChild(containerInfo);
         //parametro de elemtto html que agrega la card a la section
         section.appendChild(card);
     });

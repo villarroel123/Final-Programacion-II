@@ -228,7 +228,7 @@
         "name": "Croissant Clásico",
         "price": 2000,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/croissant-clasico.jpg",
         "description": "Hojaldre francés, mantecoso y liviano"
     },
        {
@@ -236,7 +236,7 @@
         "name": "Croissant de Almendras",
         "price": 2500,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/croissant-almendras.jpg",
         "description": "Relleno y cubierto con almendras"
     },
     {
@@ -244,7 +244,7 @@
         "name": "Croissant de Jamón y Queso",
         "price": 3000,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/croissant-jamonyqueso.png",
         "description": "Croissant relleno salado y tibio"
     },
     {
@@ -252,7 +252,7 @@
         "name": "Tostado de Jamón y Queso",
         "price": 4000,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/tostado-jamonyqueso.jpg",
         "description": "Pan dorado con relleno clásico"
     },
       {
@@ -260,7 +260,7 @@
         "name": "Sándwich Caprese",
         "price": 5000,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/sandwich-caprese.jpg",
         "description": "Tomate, mozzarella y albahaca"
     },
       {
@@ -268,7 +268,7 @@
         "name": "Focaccia de Romero",
         "price": 4000,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/focaccia-romero.jpg",
         "description": "Pan italiano con romero y aceite"
     },
     {
@@ -276,7 +276,7 @@
         "name": "Muffin de Arándanos",
         "price": 3000,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/muffin-arandanos.jpg",
         "description": "Muffin suave con arándanos"
     },
     {
@@ -284,7 +284,7 @@
         "name": "Muffin de Chocolate",
         "price": 3200,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/muffin-chocolate.jpg",
         "description": "Muffin húmedo con cacao"
     },
     {
@@ -292,7 +292,7 @@
         "name": "Muffin de Vainilla",
         "price": 3000,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/muffin-vanilla.jpg",
         "description": "Muffin clásico y esponjoso"
     },
       {
@@ -300,7 +300,7 @@
         "name": "Budín de Limón",
         "price": 4000,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/budin-limon.jpg",
         "description": "Budín cítrico y húmedo"
     },
       {
@@ -308,7 +308,7 @@
         "name": "Budín de Naranja",
         "price": 4000,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/budin-naranja.jpg",
         "description": "Budín suave con naranja"
     },
       {
@@ -316,7 +316,7 @@
         "name": "Budín Marmolado",
         "price": 4200,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/budin-marmolado.jpg",
         "description": "Budín de vainilla y chocolate"
     },
        {
@@ -324,7 +324,7 @@
         "name": "Budín de Banana y Nueces",
         "price": 4300,
         "category": "Bakery",
-        "image": "",
+        "image": "./assets/images/budin-bananaynueces.jpg",
         "description": "Budín húmedo con banana y nueces"
     }
     
