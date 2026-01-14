@@ -1,0 +1,24 @@
+{
+  "name": "final-programacion-ii",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/villarroel123/Final-Programacion-II.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/villarroel123/Final-Programacion-II/issues"
+  },
+  "homepage": "https://github.com/villarroel123/Final-Programacion-II#readme",
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

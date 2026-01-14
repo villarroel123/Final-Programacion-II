@@ -1,0 +1,331 @@
+[
+    {
+        "id": 1,
+        "name": "Café Latte",
+        "price": 2000,
+        "category": "cafeteria",
+        "image": "./assets/images/cafe-latte.jpg",
+        "description": "Café con leche espumada"
+    },
+    {
+        "id": 2,
+        "name": "Café Espresso",
+        "price": 2300,
+        "category": "cafeteria",
+        "image": "./assets/images/cafe-espresso.jpg",
+        "description": "Café corto concentrado"
+    },
+    {
+        "id": 3,
+        "name": "Café Macchiato doble",
+        "price":4500,
+        "category": "cafeteria",
+        "image": "./assets/images/cafe-machhiato.jpg",
+        "description": "Doppio con un toque de espuma"
+    },
+    {
+        "id": 4,
+        "name": "Café Cortado",
+        "price": 2500,
+        "category": "cafeteria",
+        "image": "./assets/images/cafe-cortado.jpg",
+        "description": "Café corto"
+    },
+    {
+        "id": 5,
+        "name": "Café Lungo/Americano",
+        "price": 2800,
+        "category": "cafeteria",
+        "image": "./assets/images/cafe-americano.png",
+        "description": "Café negro"
+    },
+    {
+        "id": 6,
+        "name": "Cappuccino",
+        "price": 3000,
+        "category": "cafeteria",
+        "image": "./assets/images/cappuccino.jpg",
+        "description": "Espresso con espuma cremosa"
+    },
+    {
+        "id": 7,
+        "name": "Lágrima",
+        "price": 2300,
+        "category": "cafeteria",
+        "image": "./assets/images/lagrima.jpg",
+        "description": "Leche con un toque de café"
+    },
+    {
+        "id": 8,
+        "name": "Flan white",
+        "price": 3000,
+        "category": "cafeteria",
+        "image": "./assets/images/flan-white.jpg",
+        "description": "Cortado doble"
+    },
+     {
+        "id": 9,
+        "name": "Golden Milk",
+        "price": 2800,
+        "category": "bebidas-calientes",
+        "image": "./assets/images/golden-milk.jpg",
+        "description": "Leche caliente con cúrcuma y especias"
+    },
+       {
+        "id": 10,
+        "name": "Chai latte",
+        "price": 3000,
+        "category": "bebidas-calientes",
+        "image": "./assets/images/chai-latte.jpg",
+        "description": "Té chai con mucha leche"
+    },
+       {
+        "id": 11,
+        "name": "Matcha latte",
+        "price": 4000,
+        "category": "bebidas-calientes",
+        "image": "./assets/images/matcha-latte.jpg",
+        "description": "Té verde de Japón con leche"
+    },
+       {
+        "id": 12,
+        "name": "Chocolate caliente",
+        "price": 3500,
+        "category": "bebidas-calientes",
+        "image": "./assets/images/chocolate.jpg",
+        "description": "Semiamargo"
+    },
+      {
+        "id": 13,
+        "name": "Té de canela",
+        "price": 2000,
+        "category": "bebidas-calientes",
+        "image": "./assets/images/te-canela.jpg",
+        "description": "Infusión caliente de canela"
+        },
+       {
+        "id": 14,
+        "name": "Leche de almendras",
+        "price": 2000,
+        "category": "bebidas-calientes",
+        "image": "./assets/images/leche-almendras.jpg",
+        "description": "Bebida caliente de almendras"
+    },
+    {
+        "id": 15,
+        "name": "Shaken Espresso",
+        "price": 4000,
+        "category": "bebidas-frias",
+        "image": "./assets/images/shaken-espresso.jpg",
+        "description": "Espresso frío agitado"
+    },
+    {
+        "id": 16,
+        "name": "Iced Espresso Macchiato",
+        "price": 4200,
+        "category": "bebidas-frias",
+        "image": "./assets/images/iced-espresso-macchiato.jpg",
+        "description": "Espresso frío con un toque de leche"
+    },
+     {
+        "id": 17,
+        "name": "Iced Caramel Macchiato",
+        "price": 4300,
+        "category": "bebidas-frias",
+        "image": "./assets/images/iced-caramel-macchiato.jpg",
+        "description": "Leche fría, espresso y caramelo"
+    },
+    {
+        "id": 18,
+        "name": "Iced Vanilla Macchiato",
+        "price": 4200,
+        "category": "bebidas-frias",
+        "image": "./assets/images/iced-vanilla-macchiato.jpg",
+        "description": "Leche fría con espresso y vainilla"
+    },
+    {
+        "id": 19,
+        "name": "Iced Chocolate Macchiato",
+        "price": 4200,
+        "category": "bebidas-frias",
+        "image": "./assets/images/iced-chocolate-macchiato.jpg",
+        "description": "Leche fría con espresso y chocolate"
+    },
+    {
+        "id": 20,
+        "name": "Iced Latte Macchiato",
+        "price": 4100,
+        "category": "bebidas-frias",
+        "image": "./assets/images/iced-latte-macchiato.jpg",
+        "description": "Leche fría manchada con espresso"
+    },
+    {
+        "id": 21,
+        "name": "Iced Cinnamon Cappuccino",
+        "price": 4000,
+        "category": "bebidas-frias",
+        "image": "./assets/images/iced-cinnamon-cappuccino.jpg",
+        "description": "Cappuccino frío con toque de canela"
+    },
+     {
+        "id": 22,
+        "name": "Iced Cappuccino",
+        "price": 4200,
+        "category": "bebidas-frias",
+        "image": "./assets/images/iced-cappuccino.png",
+        "description": "Espresso frío con leche y espuma"
+    },
+      {
+        "id": 23,
+        "name": "Iced Vanilla Cappuccino",
+        "price": 4000,
+        "category": "bebidas-frias",
+        "image": "./assets/images/iced-vanilla-cappuccino.jpg",
+        "description": "Cappuccino frío con vainilla"
+    },
+      {
+        "id": 24,
+        "name": "Classic Cold Brew",
+        "price": 4000,
+        "category": "bebidas-frias",
+        "image": "./assets/images/cold-brew-classic.jpg",
+        "description": "Café extraído en frío"
+    },
+    {
+        "id": 25,
+        "name": "Cold Brew with Milk",
+        "price": 4200,
+        "category": "bebidas-frias",
+        "image": "./assets/images/cold-brew-milk.jpg",
+        "description": "Cold brew con leche"
+    },
+     {
+        "id": 26,
+        "name": "Cold Brew Latte",
+        "price": 4500,
+        "category": "bebidas-frias",
+        "image": "./assets/images/cold-brew-latte.jpg",
+        "description": "Cold brew y leche fría"
+    },
+    {
+        "id": 27,
+        "name": "Vanilla Cold Brew",
+        "price": 4000,
+        "category": "bebidas-frias",
+        "image": "./assets/images/vanilla-cold-brew.jpg",
+        "description": "Cold brew con vainilla"
+    },
+     {
+        "id": 28,
+        "name": "Sweet Cream Cold Brew",
+        "price": 4000,
+        "category": "bebidas-frias",
+        "image": "./assets/images/sweet-cream.jpg",
+        "description": "Cold brew con crema dulce"
+    },
+      {
+        "id": 29,
+        "name": "Croissant Clásico",
+        "price": 2000,
+        "category": "Bakery",
+        "image": "",
+        "description": "Hojaldre francés, mantecoso y liviano"
+    },
+       {
+        "id": 30,
+        "name": "Croissant de Almendras",
+        "price": 2500,
+        "category": "Bakery",
+        "image": "",
+        "description": "Relleno y cubierto con almendras"
+    },
+    {
+        "id": 31,
+        "name": "Croissant de Jamón y Queso",
+        "price": 3000,
+        "category": "Bakery",
+        "image": "",
+        "description": "Croissant relleno salado y tibio"
+    },
+    {
+        "id": 32,
+        "name": "Tostado de Jamón y Queso",
+        "price": 4000,
+        "category": "Bakery",
+        "image": "",
+        "description": "Pan dorado con relleno clásico"
+    },
+      {
+        "id": 33,
+        "name": "Sándwich Caprese",
+        "price": 5000,
+        "category": "Bakery",
+        "image": "",
+        "description": "Tomate, mozzarella y albahaca"
+    },
+      {
+        "id": 34,
+        "name": "Focaccia de Romero",
+        "price": 4000,
+        "category": "Bakery",
+        "image": "",
+        "description": "Pan italiano con romero y aceite"
+    },
+    {
+        "id": 35,
+        "name": "Muffin de Arándanos",
+        "price": 3000,
+        "category": "Bakery",
+        "image": "",
+        "description": "Muffin suave con arándanos"
+    },
+    {
+        "id": 36,
+        "name": "Muffin de Chocolate",
+        "price": 3200,
+        "category": "Bakery",
+        "image": "",
+        "description": "Muffin húmedo con cacao"
+    },
+    {
+        "id": 37,
+        "name": "Muffin de Vainilla",
+        "price": 3000,
+        "category": "Bakery",
+        "image": "",
+        "description": "Muffin clásico y esponjoso"
+    },
+      {
+        "id": 38,
+        "name": "Budín de Limón",
+        "price": 4000,
+        "category": "Bakery",
+        "image": "",
+        "description": "Budín cítrico y húmedo"
+    },
+      {
+        "id": 39,
+        "name": "Budín de Naranja",
+        "price": 4000,
+        "category": "Bakery",
+        "image": "",
+        "description": "Budín suave con naranja"
+    },
+      {
+        "id": 40,
+        "name": "Budín Marmolado",
+        "price": 4200,
+        "category": "Bakery",
+        "image": "",
+        "description": "Budín de vainilla y chocolate"
+    },
+       {
+        "id": 41,
+        "name": "Budín de Banana y Nueces",
+        "price": 4300,
+        "category": "Bakery",
+        "image": "",
+        "description": "Budín húmedo con banana y nueces"
+    }
+    
+]
