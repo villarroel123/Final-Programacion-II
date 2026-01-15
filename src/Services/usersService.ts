@@ -1,14 +1,14 @@
+import { IuserData } from "../Interfaces/userData";
 
-import { IproductData } from "../Interfaces/productData.js";
-
-export async function fetchProduct():Promise<IproductData[]> {
+export async function fetchUsers():Promise<IuserData[]> {
     try{
         const response=await fetch("./data/products.json");
 
         if(!response.ok){
             throw new Error("Error");
         }
-        const data:IproductData[]=await response.json();
+        //uso la intez de UserData para el fetch
+        const data:IuserData[]=await response.json();
         return data;
     }catch(error){
         console.log(error)

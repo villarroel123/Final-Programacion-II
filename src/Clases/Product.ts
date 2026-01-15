@@ -1,3 +1,4 @@
+import { IproductData } from "../Interfaces/productData";
 import type {category} from "../Types/Category";
 
 export class Product {
@@ -8,13 +9,13 @@ export class Product {
     #image:string;
     #description:string;
      //especifico propiedades
-    constructor (id:number,name:string,price:number,category:category,image:string,description:string){
-        this.#id=id;
-        this.#name=name;
-        this.#price=price;
-        this.#category=category;
-        this.#image=image;
-        this.#description=description;
+    constructor (data: IproductData){
+        this.#id=data.id;
+        this.#name=data.name;
+        this.#price=data.price;
+        this.#category=data.category;
+        this.#image=data.image;
+        this.#description=data.description;
     }
 
     //Getters

@@ -1,3 +1,3 @@
-import type { Product } from "../Interfaces/Product.js";
-export declare function fetchProduct(): Promise<Product[]>;
+import { IproductData } from "../Interfaces/productData.js";
+export declare function fetchProduct(): Promise<IproductData[]>;
 //# sourceMappingURL=productService.d.ts.map

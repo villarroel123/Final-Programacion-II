@@ -1,4 +1,4 @@
-import { Product } from "./Interfaces/Product.js";
+import { Product } from "./Clases/Product.js";
 import { fetchProduct } from "./Services/productService.js";
 //funcion que reciba como parametro el array, llamo 4 veces con los distintos arrays creados, creo elementos y al final de todo se agregan a la secion que corresponden con ifs, evalua la categoria a la que pertencen y se agregan 
 //separo informacion dependiendo la categoria
@@ -14,17 +14,21 @@ const setBakery= document.getElementById("bakery");
 
 //cargo datos del json
 async function init() {
-  const products = await fetchProduct();
+  const productsData = await fetchProduct();
     
-    products.forEach(product => {
-        if(product.category==="cafeteria"){
-            cafeteria.push(product)
-        }else if(product.category==="bebidas-calientes"){
-            bebidasCalientes.push(product);
-        }else if(product.category==="bebidas-frias"){
-            bebidasFrias.push(product);
+    productsData.forEach(data => {
+        //Creo instancia de la clase product
+        const productInstance = new Product(data);
+        //verifico a que categoria pertenece la instancia creada
+        //uso metodo GET DE LA CLASE
+        if(productInstance.getCategory()==="cafeteria"){
+            cafeteria.push(productInstance)
+        }else if(productInstance.getCategory()==="bebidas-calientes"){
+            bebidasCalientes.push(productInstance);
+        }else if(productInstance.getCategory()==="bebidas-frias"){
+            bebidasFrias.push(productInstance);
         }else{
-            bakery.push(product);
+            bakery.push(productInstance);
         }
     });
     //llamo funciones
@@ -49,7 +53,7 @@ function createGalleries(products:Product[], section:HTMLElement){
     //creo boton
     const btn=document.createElement("button");
     //agrego clases diferentes segun categorias
-    const categoryClass = product.category;
+    const categoryClass = product.getCategory();
     card.classList.add("card", `card--${categoryClass}`);
     containerInfo.classList.add(`info--${categoryClass}`)
     title.classList.add("title", `title--${categoryClass}`);
@@ -57,13 +61,16 @@ function createGalleries(products:Product[], section:HTMLElement){
     img.classList.add("image", `image--${categoryClass}`);
     description.classList.add("description", `description--${categoryClass}`);
     btn.classList.add("btn", `btn--${categoryClass}`);
+    
+    //agrego evento al boton
+    
 
-    //agrego datos
-    title.textContent=product.name;
-    prices.textContent=`$${product.price}`;
-    img.src=product.image;
-    description.textContent=product.description;
-    btn.textContent="Agregar al carrito";
+    //agrego datos, uso GETTERS de la clase
+    title.textContent = product.getName();
+    prices.textContent = `$${product.getPrice()}`;
+    img.src = product.getImage();
+    description.textContent = product.getDescription();
+    btn.textContent = "Agregar al carrito";
 
     card.appendChild(img);
     containerInfo.appendChild(title);
