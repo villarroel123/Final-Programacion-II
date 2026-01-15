@@ -171,6 +171,12 @@ h1, h2, h3, h4, h5, h6 {
 .beige{
     background-color: #E7D0C2;
 }
+.verde{
+    background-color: #053E0F;
+}
+.verde-o{
+    background-color: #022B0A;
+}
 .white{
     background-color: #F6F0ED;
 }
@@ -193,6 +199,12 @@ h1, h2, h3, h4, h5, h6 {
 .c-beige{
     color: #E7D0C2;
 }
+.c-verde{
+    color: #053E0F;
+}
+.c-verde-o{
+    color: #022B0A;
+}
 .c-white{
     color: #F6F0ED;
 }
@@ -201,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 /*Clases del html*/
 .section-header{
-    background-color: rgb(63, 72, 72);
+    
     height: 8vh;
 }
 
@@ -219,11 +231,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Section cafeteria*/
 .section-cafeteria{
-    margin: 3em 0;
+    padding: 3em 0;
 }
-
+.titulo-cafeteria{
+    color: #481E02;
+}
+.card--cafeteria{
+    background-color: #F6F0ED;
+      border: 1px solid rgb(162, 162, 162);
+    border-radius: 2em;
+    
+}
 .title--cafeteria{
-    color: rgb(106, 106, 214);
+    color: #481E02;
     font-size: 2em;
 }
 .image--cafeteria{
@@ -237,33 +257,99 @@ h1, h2, h3, h4, h5, h6 {
     color: #E7D0C2;
 }
 .info--cafeteria{
-    padding: 1em;
+    padding: 1em;   
 }
+/*Section bebidas calientes*/
+.section-bebidas-calientes{
+    padding: 5em 0;
+}
+.card--bebidas-calientes{
+    height: 30em;
+    width: 25%;
+    position: relative;
+}
+.image--bebidas-calientes{
+object-fit: cover;
+width: 100%;
+height: 100%;
+   
+}
+.info--bebidas-calientes{
+    bottom: 0;
+    padding: 1em;
+    position: absolute;
+    z-index: 1000;
+    color: #E7D0C2;
+}
+
+.card--bebidas-calientes::before {
+  content: "";
+  position: absolute;
+  inset: 0; 
+  background-color: rgba(3, 28, 1, 0.6);
+  
+}
+.btn--bebidas-calientes{
+background-color: transparent;
+border: 1px solid #E7D0C2;
+color: #E7D0C2;
+}
+
+/*Section bebidas frias*/
+.card--bebidas-frias{
+    width: 25%;
+    padding: 0.7em;
+    background-color: #481E02;
+    border-radius: 2em;
+}
+.image--bebidas-frias{
+    border-radius: 1em;
+}
+.description--bebidas-frias{
+    width: 100%;
+}
+.price--bebidas-frias{
+    width: 100%;
+}
+.btn--bebidas-frias{
+    
+    border: none;
+    background-color: transparent;
+    color: #E7D0C2;
+}
+.info--bebidas-frias{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #E7D0C2;
+}
+
+
+
+
+
+
+
 
 
 
 .card {
-  border: 1px solid rgb(162, 162, 162);
-  border-radius: 2em;
-  margin:0.5em;
   overflow: hidden;
-  width: 20%;
+  margin:0.5em;
 }
 .container-info{
     padding: 1em;
 }
-.prices{
+.btn{
+
+border-radius: 2em;
+
+padding: 0.5em;
 
 }
-.btn{
-border: none;
-border-radius: 2em;
-background-color: #481E02;
-padding: 0.5em;
-color: #E7D0C2;
-}
 .title {
-  color: rgb(106, 106, 214);
+ 
   font-size: 2em;
 }
 .image{
