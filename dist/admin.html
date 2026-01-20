@@ -6,6 +6,36 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <main>
+        <section>
+            <form action="">
+                <ul>
+                    <li>
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name"name="user_name" class="input-nombre">
+                         <label class="error-message" id="user-error" for="user"></label>
+                    </li>
+                    
+                    <li>
+                        <label for="mail">Correo electrónico:</label>
+                        <input type="email" id="mail" name="user_mail" class="input-email">
+                        <label class="error-message" id="mail-error" for="mail"></label>
+                    </li>
+                    <li>
+                        <label for="password">Contraseña</label>
+                        <input type="text" id="password" class="input-password">
+                        <label class="error-message" id="password-error" for="password"></label>
+                    </li>
+                    <button type="submit" class="boton-form">Enviar
+                    </button>
+                </ul>
+            </form>
+        </section>
+        <section id="admin-login">
+        </section>
+         <section id="admin-panel">
+        </section>
+    </main>
+    <script type="module" src="/dist/admin.js"></script>
 </body>
 </html>

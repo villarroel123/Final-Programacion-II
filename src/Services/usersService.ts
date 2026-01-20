@@ -2,7 +2,7 @@ import { IuserData } from "../Interfaces/userData";
 
 export async function fetchUsers():Promise<IuserData[]> {
     try{
-        const response=await fetch("./data/products.json");
+        const response=await fetch("./data/users.json");
 
         if(!response.ok){
             throw new Error("Error");

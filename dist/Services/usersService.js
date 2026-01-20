@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 export function fetchUsers() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetch("./data/products.json");
+            const response = yield fetch("./data/users.json");
             if (!response.ok) {
                 throw new Error("Error");
             }
