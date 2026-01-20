@@ -1,7 +1,7 @@
-import { User } from "./Clases/User";
-import { IuserData } from "./Interfaces/userData";
-import { fetchUsers } from "./Services/usersService";
+import { User } from "./Clases/User.js";
+import { fetchUsers } from "./Services/usersService.js";
 
+const form=document.getElementById("form") as HTMLFormElement;
 const inputName=document.querySelector(".input-nombre") as HTMLInputElement;
 const inputMail=document.querySelector(".input-email") as HTMLInputElement;
 const inputPassword=document.querySelector(".input-password")as HTMLInputElement;
@@ -10,34 +10,57 @@ const btnSubmit=document.querySelector(".boton-form")as HTMLElement;
 const adminLogin=document.getElementById("admin-login")as HTMLElement;
 const adminPanel=document.getElementById("admin-panel")as HTMLElement;
 
-const userError=document.getElementById("user-error") as HTMLInputElement;
-const mailError=document.getElementById("mail-error")as HTMLInputElement;
-const passwordError=document.getElementById("password-error")as HTMLInputElement;
-
-
-async function loginUser(name:string,email:string,password:string):Promise<User> {
-    const users=await fetchUsers();
-
-    if()
-
-}
+const userError=document.getElementById("user-error") as HTMLElement;
+const mailError=document.getElementById("mail-error")as HTMLElement;
+const passwordError=document.getElementById("password-error")as HTMLElement;
 
 
 
 
-btnSubmit.addEventListener('submit',async(e)=>{
+form.addEventListener('submit',async(e)=>{
     e.preventDefault();//para que no recargue
 
-    //Validacion de formulario
-    if(!inputMail.value||!inputPassword.value||!inputName.value){
-        console.log("campos obligatorios")
-    }
-    if(!inputMail.ariaValueMax?.includes("@")){
-        console.log("email invalido")
+    
+    const user=await loginUser(inputName.value,inputMail.value,inputPassword.value)
+
+    if(user){
+        if(user.getIsAdmin()){
+            console.log("Acceso permitido a "+ user.getName());
+            //llamo funcion para mostrar informacion
+        }else{
+            console.log("Acceso denegado, no eres administrador")
+        }
+    }else{
+        console.log("Datos incorrectos")
     }
 
-    const user=await 
 })
+async function loginUser(name:string,email:string,password:string):Promise<User|null> {
+    const users=await fetchUsers();
+
+
+    for(const data of users){
+        if(data.email===email && data.password===password && data.name===name){
+            return new User(data);
+        }
+    }
+    return null;
+}
+
+//funcion para que se esconda el formulario
+
+
+
+//funcion para que aparezcan listado de usuarios
+
+//funcion para que aparezcan  productos
+
+
+
+
+
+
+
 
 
 
@@ -53,7 +76,7 @@ inputName.addEventListener("input",()=>{
     }
     if(value.length>15){
         userError.innerText="Maximo 15 caracteres";
-      
+        return;
     }
     const nombreDeg = /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/;
     if (value.length > 0 && !nombreDeg.test(value)) {
@@ -78,7 +101,7 @@ inputPassword.addEventListener("input",()=>{
     const value=inputPassword.value;
     passwordError.innerText="";
     if(value.length<8){
-        passwordError.innerText="La contraseña debe tener al menos 8 caracteres."
+        passwordError.innerText="La contraseña debe tener al menos 3 caracteres."
     }
     if(value.length>15){
         passwordError.innerText="Maximo 15 caracteres";

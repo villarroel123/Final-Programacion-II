@@ -7,7 +7,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import { fetchUsers } from "./Services/usersService";
+import { User } from "./Clases/User.js";
+import { fetchUsers } from "./Services/usersService.js";
+const form = document.getElementById("form");
 const inputName = document.querySelector(".input-nombre");
 const inputMail = document.querySelector(".input-email");
 const inputPassword = document.querySelector(".input-password");
@@ -17,25 +19,36 @@ const adminPanel = document.getElementById("admin-panel");
 const userError = document.getElementById("user-error");
 const mailError = document.getElementById("mail-error");
 const passwordError = document.getElementById("password-error");
+form.addEventListener('submit', (e) => __awaiter(void 0, void 0, void 0, function* () {
+    e.preventDefault(); //para que no recargue
+    const user = yield loginUser(inputName.value, inputMail.value, inputPassword.value);
+    if (user) {
+        if (user.getIsAdmin()) {
+            console.log("Acceso permitido a " + user.getName());
+            //llamo funcion para mostrar informacion
+        }
+        else {
+            console.log("Acceso denegado, no eres administrador");
+        }
+    }
+    else {
+        console.log("Datos incorrectos");
+    }
+}));
 function loginUser(name, email, password) {
     return __awaiter(this, void 0, void 0, function* () {
         const users = yield fetchUsers();
-        if ()
-            ;
+        for (const data of users) {
+            if (data.email === email && data.password === password && data.name === name) {
+                return new User(data);
+            }
+        }
+        return null;
     });
 }
-btnSubmit.addEventListener('submit', (e) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
-    e.preventDefault(); //para que no recargue
-    //Validacion de formulario
-    if (!inputMail.value || !inputPassword.value || !inputName.value) {
-        console.log("campos obligatorios");
-    }
-    if (!((_a = inputMail.ariaValueMax) === null || _a === void 0 ? void 0 : _a.includes("@"))) {
-        console.log("email invalido");
-    }
-    const user = yield ;
-}));
+//funcion para que se esconda el formulario
+//funcion para que aparezcan listado de usuarios
+//funcion para que aparezcan  productos
 //----------Validacion de datos--------------
 //Verifico nombre
 inputName.addEventListener("input", () => {
@@ -47,6 +60,7 @@ inputName.addEventListener("input", () => {
     }
     if (value.length > 15) {
         userError.innerText = "Maximo 15 caracteres";
+        return;
     }
     const nombreDeg = /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/;
     if (value.length > 0 && !nombreDeg.test(value)) {
@@ -69,7 +83,7 @@ inputPassword.addEventListener("input", () => {
     const value = inputPassword.value;
     passwordError.innerText = "";
     if (value.length < 8) {
-        passwordError.innerText = "La contraseña debe tener al menos 8 caracteres.";
+        passwordError.innerText = "La contraseña debe tener al menos 3 caracteres.";
     }
     if (value.length > 15) {
         passwordError.innerText = "Maximo 15 caracteres";
