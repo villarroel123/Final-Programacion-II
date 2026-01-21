@@ -24,20 +24,24 @@ form.addEventListener('submit', (e) => __awaiter(void 0, void 0, void 0, functio
     const user = yield loginUser(inputName.value, inputMail.value, inputPassword.value);
     if (user) {
         if (user.getIsAdmin()) {
-            console.log("Acceso permitido a " + user.getName());
             //llamo funcion para mostrar informacion
+            inicioUsuario(user.getName()); //obtengo dato con el metodo de la clase
         }
         else {
-            console.log("Acceso denegado, no eres administrador");
+            accesoDenegado();
         }
     }
     else {
-        console.log("Datos incorrectos");
+        datosIncorrectos();
     }
 }));
 function loginUser(name, email, password) {
     return __awaiter(this, void 0, void 0, function* () {
         const users = yield fetchUsers();
+        // if (!inputMail.value || !inputPassword.value || !inputName.value) {
+        //     console.log("Campos obligatorios");
+        //     return null; 
+        // }
         for (const data of users) {
             if (data.email === email && data.password === password && data.name === name) {
                 return new User(data);
@@ -46,7 +50,39 @@ function loginUser(name, email, password) {
         return null;
     });
 }
+//----FUNCIONES PARA ACCESO-----
 //funcion para que se esconda el formulario
+const sectBienvenida = document.getElementById("sect-bienvenida");
+const bienvenida = document.getElementById("bienvenida");
+function inicioUsuario(nombre) {
+    const msjBienvenida = document.createElement("h2");
+    msjBienvenida.textContent = `Bienvenido ${nombre} (Administrador)`;
+    bienvenida.appendChild(msjBienvenida);
+    //muestro informacion
+    sectBienvenida === null || sectBienvenida === void 0 ? void 0 : sectBienvenida.classList.remove("hide"); //muestro mensaje de bienvenida
+    form.classList.add("hide"); //escondo el formulario
+    adminPanel.classList.remove("hide"); //muestro panel de opciones
+}
+//Funcion para acceso denegado
+function accesoDenegado() {
+    const msjDenegado = document.createElement("h3");
+    msjDenegado.textContent = "Acceso denegado, no eres administrador";
+    sectBienvenida.appendChild(msjDenegado);
+    //muestro informacion
+    sectBienvenida === null || sectBienvenida === void 0 ? void 0 : sectBienvenida.classList.remove("hide"); //muestro mensaje de bienvenida
+    form.classList.add("hide"); //escondo el formulario
+}
+//funcion datos incorrectos
+function datosIncorrectos() {
+    const errorExistente = document.getElementById("datos-incorrectos");
+    if (!errorExistente) { //para que no se repitan y creen mismos mensajes
+        const msjIncorrecto = document.createElement("p");
+        msjIncorrecto.textContent = "Datos incorrectos";
+        msjIncorrecto.setAttribute("id", "datos-incorrectos");
+        form.appendChild(msjIncorrecto); //lo agrego en el form
+    }
+}
+//----FUNCIONES PARA EL CONTENIDO----
 //funcion para que aparezcan listado de usuarios
 //funcion para que aparezcan  productos
 //----------Validacion de datos--------------
@@ -82,7 +118,7 @@ inputMail.addEventListener("input", () => {
 inputPassword.addEventListener("input", () => {
     const value = inputPassword.value;
     passwordError.innerText = "";
-    if (value.length < 8) {
+    if (value.length < 3) {
         passwordError.innerText = "La contraseña debe tener al menos 3 caracteres.";
     }
     if (value.length > 15) {

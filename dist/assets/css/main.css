@@ -124,6 +124,12 @@ h1, h2, h3, h4, h5, h6 {
 .w-50{
     width: 50%;
 }
+.w-40{
+    width: 40%;
+}
+.w-30{
+    width: 30%;
+}
 .w-25{
     width: 25%;
 }
@@ -355,4 +361,16 @@ padding: 0.5em;
 .image{
     width: 20em;
     
+}
+
+
+
+
+/*---------------------PAGINA ADMIN----------------------------------*/
+.hide{
+    display: none;
+}
+/*Form*/
+input:invalid {
+  border: 2px dashed red;
 }

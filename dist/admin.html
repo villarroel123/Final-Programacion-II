@@ -3,27 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/main.css">
     <title>Document</title>
 </head>
 <body>
     <main>
-        <section>
-            <form id="form">
-                <ul>
-                    <li>
+        <section id="sect-bienvenida" class="hide w100 d-flex jc-center ai-center">
+            <div id="bienvenida" class="w80">
+
+            </div>
+        </section>
+        <section class="w-100 d-flex jc-center ai-center">
+            <form id="form" class="w-25">
+                <ul class="d-flex fd-colum">
+                    <li class="d-flex fd-colum">
                         <label for="name">Nombre</label>
-                        <input type="text" id="name"name="user_name" class="input-nombre">
+                        <input type="text" id="name"name="user_name" class="input-nombre" required>
                          <label class="error-message" id="user-error" for="user"></label>
                     </li>
                     
-                    <li>
+                    <li class="d-flex fd-colum">
                         <label for="mail">Correo electrónico:</label>
-                        <input type="email" id="mail" name="user_mail" class="input-email">
+                        <input type="email" id="mail" name="user_mail" class="input-email" required>
                         <label class="error-message" id="mail-error" for="mail"></label>
                     </li>
-                    <li>
+                    <li class="d-flex fd-colum">
                         <label for="password">Contraseña</label>
-                        <input type="text" id="password" class="input-password">
+                        <input type="text" id="password" class="input-password" required>
                         <label class="error-message" id="password-error" for="password"></label>
                     </li>
                     <button type="submit" class="boton-form">Enviar
@@ -33,7 +39,22 @@
         </section>
         <section id="admin-login">
         </section>
-         <section id="admin-panel">
+         <section id="admin-panel" class="w-100 d-flex jc-center ai-center hide">
+            <div class="w-70">
+                <article>
+                    <h3 class="ta-center"id="usuarios">Usuarios</h3>
+                    <div id="cards-usuarios"></div>
+                    
+                </article>
+                <article>
+                    <h3 id="productos" class="ta-center">Productos</h3>
+                    <div id="cards-productos"></div>
+                </article>
+                <article>
+                    <h3 id="ajustes" class="ta-center">Ajustes</h3>
+                    <div id="cards-ajustes"></div>
+                </article>
+            </div>
         </section>
     </main>
     <script type="module" src="/dist/admin.js"></script>
