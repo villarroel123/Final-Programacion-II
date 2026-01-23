@@ -61,9 +61,6 @@ function createGalleries(products:Product[], section:HTMLElement){
     img.classList.add("image", `image--${categoryClass}`);
     description.classList.add("description", `description--${categoryClass}`);
     btn.classList.add("btn", `btn--${categoryClass}`);
-    
-    //agrego evento al boton
-    
 
     //agrego datos, uso GETTERS de la clase
     title.textContent = product.getName();

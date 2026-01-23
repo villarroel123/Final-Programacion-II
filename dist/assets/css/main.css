@@ -374,3 +374,8 @@ padding: 0.5em;
 input:invalid {
   border: 2px dashed red;
 }
+/*CARDS PRODUCTOS*/
+
+.ad-card-img{
+    width: 10em;
+}
