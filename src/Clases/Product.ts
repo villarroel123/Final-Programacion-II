@@ -39,22 +39,22 @@ export class Product {
     }
 
     //Setters
-    set id(value:number){
+    setId(value:number){
         this.#id=value;
     }
-    set name(value:string){
+    setName(value:string){
         this.#name=value;
     }
-    set price(value:number){
+    setPrice(value:number){
         this.#price=value;
     }
-    set category(value:category){
+    setCategory(value:category){
         this.#category=value;
     }
-    set image(value:string){
+    setImage(value:string){
         this.#image=value;
     }
-    set description(value:string){
+    setDescription(value:string){
         this.#description=value;
     }
 }

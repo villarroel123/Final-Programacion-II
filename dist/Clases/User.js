@@ -50,25 +50,25 @@ export class User {
         return __classPrivateFieldGet(this, _User_likedPostIDs, "f");
     }
     //Setters
-    set id(value) {
+    setId(value) {
         __classPrivateFieldSet(this, _User_id, value, "f");
     }
-    set name(value) {
+    setName(value) {
         __classPrivateFieldSet(this, _User_name, value, "f");
     }
-    set password(value) {
+    setPassword(value) {
         __classPrivateFieldSet(this, _User_password, value, "f");
     }
-    set email(value) {
+    setEmail(value) {
         __classPrivateFieldSet(this, _User_email, value, "f");
     }
-    set issubscribed(value) {
+    setIssubscribed(value) {
         __classPrivateFieldSet(this, _User_isSubscribed, value, "f");
     }
-    set isadmin(value) {
+    setIsadmin(value) {
         __classPrivateFieldSet(this, _User_isAdmin, value, "f");
     }
-    set likedPostIds(value) {
+    setLikedPostIds(value) {
         __classPrivateFieldSet(this, _User_likedPostIDs, value, "f");
     }
 }

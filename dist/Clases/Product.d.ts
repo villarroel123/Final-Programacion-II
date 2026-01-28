@@ -9,11 +9,11 @@ export declare class Product {
     getCategory(): category;
     getImage(): string;
     getDescription(): string;
-    set id(value: number);
-    set name(value: string);
-    set price(value: number);
-    set category(value: category);
-    set image(value: string);
-    set description(value: string);
+    setId(value: number): void;
+    setName(value: string): void;
+    setPrice(value: number): void;
+    setCategory(value: category): void;
+    setImage(value: string): void;
+    setDescription(value: string): void;
 }
 //# sourceMappingURL=Product.d.ts.map

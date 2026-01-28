@@ -46,22 +46,22 @@ export class Product {
         return __classPrivateFieldGet(this, _Product_description, "f");
     }
     //Setters
-    set id(value) {
+    setId(value) {
         __classPrivateFieldSet(this, _Product_id, value, "f");
     }
-    set name(value) {
+    setName(value) {
         __classPrivateFieldSet(this, _Product_name, value, "f");
     }
-    set price(value) {
+    setPrice(value) {
         __classPrivateFieldSet(this, _Product_price, value, "f");
     }
-    set category(value) {
+    setCategory(value) {
         __classPrivateFieldSet(this, _Product_category, value, "f");
     }
-    set image(value) {
+    setImage(value) {
         __classPrivateFieldSet(this, _Product_image, value, "f");
     }
-    set description(value) {
+    setDescription(value) {
         __classPrivateFieldSet(this, _Product_description, value, "f");
     }
 }

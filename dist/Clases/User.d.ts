@@ -9,12 +9,12 @@ export declare class User {
     getIsSubscribed(): boolean;
     getIsAdmin(): boolean;
     getLikedPostIds(): number[];
-    set id(value: number);
-    set name(value: string);
-    set password(value: string);
-    set email(value: string);
-    set issubscribed(value: boolean);
-    set isadmin(value: boolean);
-    set likedPostIds(value: number[]);
+    setId(value: number): void;
+    setName(value: string): void;
+    setPassword(value: string): void;
+    setEmail(value: string): void;
+    setIssubscribed(value: boolean): void;
+    setIsadmin(value: boolean): void;
+    setLikedPostIds(value: number[]): void;
 }
 //# sourceMappingURL=User.d.ts.map

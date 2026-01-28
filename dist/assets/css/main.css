@@ -148,6 +148,9 @@ h1, h2, h3, h4, h5, h6 {
 .m-1{
     margin:0 1em;
 }
+.m-2{
+    margin: 2em;
+}
 /*TIPOGRAFIAS*/
 .fs-1-5{
     font-size: 1.5em;
@@ -217,11 +220,20 @@ h1, h2, h3, h4, h5, h6 {
 .c-black{
     color: #10100F;
 }
+
+.c-p{
+    cursor: pointer;
+}
+
+
+
 /*Clases del html*/
 .section-header{
     
     height: 8vh;
 }
+
+
 
 /*SLIDER*/
 .slider{
@@ -378,4 +390,16 @@ input:invalid {
 
 .ad-card-img{
     width: 10em;
+}
+
+/*MODALS*/
+
+#modal-usuarios::backdrop{
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.container-modal{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000000;
 }

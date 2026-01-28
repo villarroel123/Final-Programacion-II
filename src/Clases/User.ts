@@ -43,25 +43,25 @@ export class User{
     }
 
     //Setters
-    set id(value:number){
+    setId(value:number){
         this.#id=value;
     }
-    set name(value:string){
+    setName(value:string){
         this.#name=value;
     }
-    set password(value:string){
+    setPassword(value:string){
         this.#password=value;
     }
-    set email(value:string){
+    setEmail(value:string){
         this.#email=value;
     }
-    set issubscribed(value:boolean){
+    setIssubscribed(value:boolean){
         this.#isSubscribed=value;
     }
-    set isadmin(value:boolean){
+    setIsadmin(value:boolean){
         this.#isAdmin=value;
     }
-    set likedPostIds(value:number[]){
+    setLikedPostIds(value:number[]){
         this.#likedPostIDs=value;
     }
 

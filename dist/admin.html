@@ -21,7 +21,6 @@
                         <input type="text" id="name"name="user_name" class="input-nombre" required>
                          <label class="error-message" id="user-error" for="user"></label>
                     </li>
-                    
                     <li class="d-flex fd-colum">
                         <label for="mail">Correo electrónico:</label>
                         <input type="email" id="mail" name="user_mail" class="input-email" required>
@@ -40,19 +39,78 @@
         <section id="admin-login">
         </section>
          <section id="admin-panel" class="w-100 d-flex jc-center ai-center hide">
-            <div class="w-70">
-                <div>
-                    <h3 class="ta-center"id="usuarios">Usuarios</h3>
+            <div class="w-70 d-flex jc-center ai-center fd-colum">
+                <div class="d-flex">
+                    <h3 class="ta-center m-2 c-p"id="usuarios">Usuarios</h3>
+                    <h3 id="productos" class="ta-center c-p  m-2">Productos</h3>
+                </div>
+                <div class=" d-flex jc-center ai-center">
+                     <!---------------------CARDS USUARIOS----------------------->
+                     <div class="container-modal">
+                        <dialog id="modal-usuarios">
+                            <form id="modal-form-usuarios">
+                                <ul>
+                                    <li>
+                                        <label for="name-modal-user">Nombre</label>
+                                        <input type="text" id="name-modal-user" class="input-usuario">
+                                    </li>
+                                    <li>
+                                        <label for="email-modal-user">Email</label>
+                                        <input type="email" id="email-modal-user" class="input-usuario2">
+                                    </li>
+                                    <li>
+                                        <label for="rol-modal-user">Rol</label>
+                                        <input type="text" id="rol-modal-user" class="input-usuario3">
+                                    </li>
+                                    <button type="submit" id="btn-guardar-user">Guardar</button>
+                                    <button type="button" id="btn-cancelar-user">Cancelar</button>
+                                </ul>
+                            </form>
+                        </dialog>
+                     </div>
+                     <dialog id="modal-eliminar-user">
+                        <h3>¿Estas seguro que deseas eliminar el usuario?</h3>
+                        <button  id="btn-eliminar-user-conf">Eliminar</button>
+                        <button  id="btn-cancelar-user-eliminar">Cancelar</button>
+                     </dialog>
                     <div id="cards-usuarios" class="d-flex jc-center ai-center"></div>
-                    
-                </div>
-                <div>
-                    <h3 id="productos" class="ta-center">Productos</h3>
+                     <!------////cards usuarios////// -->
+                     <!-----------------------------CARDS PRODUCTOS-------------------------->
+                     <dialog id="modal-productos">
+                        <form id="modal-form-productos">
+                            <ul>
+                                <li>
+                                    <label for="name-modal-product">Nombre</label>
+                                    <input type="text" id="name-modal-product" class="input-producto1">
+                                </li>
+                                <li>
+                                    <label for="price-modal-product">Precio</label>
+                                    <input type="number" name="" id="price-modal-product" class="input-producto2">
+                                </li>
+                                <li>
+                                    <label for="category-modal-product">Categoria</label>
+                                    <select id="category-modal-product" class="input-producto3">
+                                        <option value="cafeteria">Cafeteria</option>
+                                        <option value="bebidas-frias">Bebidas frias</option>
+                                        <option value="bebidas-calientes">Bebidas Calientes</option>
+                                        <option value="bakery">Bakery</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <label for="description-modal-product">Descripción</label>
+                                    <textarea id="description-modal-product"rows="4"cols="50"placeholder="Escribí una descripción..." class="input-producto4"></textarea>
+                                </li>
+                                <button type="submit" id="btn-guardar-product">Guardar</button>
+                                <button type="button" id="btn-cancelar-product">Cancelar</button>
+                            </ul>
+                        </form>
+                     </dialog>
+                     <dialog id="modal-eliminar-product">
+                            <h3>¿Estas seguro que deseas eliminar este producto?</h3>
+                            <button  id="btn-eliminar-product-conf">Eliminar</button>
+                            <button  id="btn-cancelar-product-eliminar">Cancelar</button>
+                     </dialog>
                     <div id="cards-productos"class="d-flex f-warp"></div>
-                </div>
-                <div>
-                    <h3 id="ajustes" class="ta-center">Ajustes</h3>
-                    <div id="cards-ajustes"></div>
                 </div>
             </div>
         </section>
