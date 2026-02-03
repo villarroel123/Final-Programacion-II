@@ -4,6 +4,7 @@ import { fetchProduct } from "./Services/productService.js";
 import { fetchUsers } from "./Services/usersService.js";
 import { category } from "./Types/Category.js";
 
+const sectionInicio=document.getElementById("section-inicio") as HTMLElement;
 const form=document.getElementById("form") as HTMLFormElement;
 const inputNames=document.querySelector(".input-nombre") as HTMLInputElement;
 const inputMail=document.querySelector(".input-email") as HTMLInputElement;
@@ -46,11 +47,14 @@ const sectBienvenida=document.getElementById("sect-bienvenida")as HTMLElement;
 const bienvenida=document.getElementById("bienvenida") as HTMLElement;
 function inicioUsuario(nombre:string|null){
     const msjBienvenida=document.createElement("h2") as HTMLHeadingElement;
+    const frase=document.createElement("p") as HTMLElement;
     msjBienvenida.textContent= `Bienvenido ${nombre} (Administrador)`;
+    frase.textContent="Ya podés acceder a las herramientas de administración y gestionar el contenido.";
     bienvenida.appendChild(msjBienvenida);
+    bienvenida.appendChild(frase);
     //muestro informacion
     sectBienvenida?.classList.remove("hide")//muestro mensaje de bienvenida
-    form.classList.add("hide")//escondo el formulario
+    sectionInicio.classList.add("hide")//escondo el formulario
     adminPanel.classList.remove("hide")//muestro panel de opciones
     cardsUsers()//muestro en primer lugar las cards de los usuarios
 }
@@ -60,8 +64,8 @@ function accesoDenegado(){
     msjDenegado.textContent="Acceso denegado, no eres administrador";
     sectBienvenida.appendChild(msjDenegado);
     //muestro informacion
-    sectBienvenida?.classList.remove("hide")//muestro mensaje de bienvenida
-    form.classList.add("hide")//escondo el formulario
+    sectBienvenida?.classList.remove("hide")//muestro mensaje
+    sectionInicio.classList.add("hide")//escondo el formulario
 }
 //---FUNCION DATOS INGRESADOS INCORRECTOS---//
 function datosIncorrectos(){
@@ -77,8 +81,8 @@ function datosIncorrectos(){
 const panelUsuarios=document.getElementById("usuarios") as HTMLHeadingElement;
 const panelProductos=document.getElementById("productos") as HTMLHeadingElement;
 const contenedorUsuarios= document.getElementById("cards-usuarios") as HTMLElement;
+const menuUsers=document.getElementById("menu-datos-usuarios") as HTMLElement;
 const contenedorProductos=document.getElementById("cards-productos") as HTMLElement;
-const overlayModal=document.querySelector(".container-modal") as HTMLElement;
 //---FUNCION PARA CREAR INSTANCIAS PARA LAS CARDS DE USUARIOS---//
 let stateUser: any[] =[];
 async function cargaUsuarios() {
@@ -98,21 +102,35 @@ async function cardsUsers(){
     stateUser.forEach(user=>{//recorro array de instancias
         const card=document.createElement("article");
         const btnEditarUser=document.createElement("button") as HTMLButtonElement;
+        const nombreUser=document.createElement("h5") as HTMLHeadingElement;
+        const emailUser=document.createElement("h5") as HTMLHeadingElement;
+        const rolUser=document.createElement("h5") as HTMLHeadingElement;
+        const idUser=document.createElement("h5") as HTMLHeadingElement;
+        const passwordUser=document.createElement("h5") as HTMLHeadingElement;
         btnEditarUser.type = "button";
         btnEditarUser.textContent = "Editar";
         const btnEliminarUser=document.createElement("button") as HTMLButtonElement;
         btnEliminarUser.type = "button";
         btnEliminarUser.textContent = "Eliminar";
-        card.innerHTML = `
-            <p>Nombre: ${user.getName()}</p>
-            <p>Email: ${user.getEmail()}</p>
-            <p>Rol: ${user.getIsAdmin() ? "Admin" : "Usuario"}</p>
-        `;
+        nombreUser.textContent=`${user.getName()}`;
+        emailUser.textContent=`${user.getEmail()}`;
+        rolUser.textContent=`${user.getIsAdmin() ? "Admin" : "Usuario"}`;
+
+        //agrego clases
+        nombreUser.classList.add("nombre-user-card");
+        emailUser.classList.add("email-user-card");
+        rolUser.classList.add("rol-user-card");
+        card.classList.add("card-user")
+
+        card.appendChild(nombreUser);
+        card.appendChild(emailUser);
+        card.appendChild(rolUser);
         card.appendChild(btnEditarUser);
         card.appendChild(btnEliminarUser);
         contenedorUsuarios.appendChild(card);
         contenedorUsuarios.classList.remove("hide")
         contenedorProductos.classList.add("hide")
+        menuUsers.classList.remove("hide")
          //conecto funcion para eliminar usuario
         btnEliminarUser.addEventListener("click",()=>{
             eliminarUserConfir(user)
@@ -157,12 +175,12 @@ async function productsCards() {
         btn1.textContent="Editar";
         btn2.textContent="Eliminar";
         //agrego clases
-        title.classList.add("ad-card-title");
-        price.classList.add("ad-card-price");
-        category.classList.add("ad-card-category");
-        image.classList.add("ad-card-img");
-        description.classList.add("ad-card-descrip");
-        card.classList.add("ad-card");
+        title.classList.add("title-product-card");
+        price.classList.add("price-product-card");
+        category.classList.add("category-product-card");
+        image.classList.add("img-product-card");
+        description.classList.add("desc-product-card");
+        card.classList.add("card-product");
         //agrego al contenedor
         card.appendChild(title);
         card.appendChild(price);
@@ -174,6 +192,7 @@ async function productsCards() {
         contenedorProductos.appendChild(card);
         contenedorProductos.classList.remove("hide")
         contenedorUsuarios.classList.add("hide")
+        menuUsers.classList.add("hide");
         //funciones para botones
         btn1.addEventListener("click",()=>{
             editarProducto(product);
@@ -192,7 +211,6 @@ const nameUserModal=document.getElementById("name-modal-user") as HTMLInputEleme
 const emailUserModal=document.getElementById("email-modal-user") as HTMLInputElement;
 const rolUserModal=document.getElementById("rol-modal-user") as HTMLInputElement;
 const btnCancelarUser=document.getElementById("btn-cancelar-user") as HTMLButtonElement;
-
 function mostrarModalUser(){
     modalUsuarios.showModal()
 }
@@ -218,14 +236,14 @@ modalUser.addEventListener("submit",(e)=>{
     requestUserEdit(userEditando);
 })
 //para cerrar modal
-        btnCancelarUser.addEventListener("click",()=>{
-            cerrarModalUser();
-        })
-        overlayModal.addEventListener("click", (event)=>{
-            if(event.target===overlayModal){
-                modalUsuarios.close();
-            }
-        })
+btnCancelarUser.addEventListener("click",()=>{
+    cerrarModalUser();
+})
+modalUsuarios.addEventListener("click", (event)=>{
+    if(event.target===modalUsuarios){
+        modalUsuarios.close();
+    }
+})
 //-- FUNCION PARA CREAR OBJETO REQUEST AL EDITAR USUARIO---//
 function requestUserEdit(usuario:User){
     const request=new Request("users.json",{
@@ -275,6 +293,11 @@ function requestUserDelete(usuario:User){
     })
     console.log("REQUEST DELETE USER:", request)
 }
+ modalEliminar.addEventListener("click", (event)=>{
+    if(event.target===modalEliminar){
+        modalEliminar.close();
+    }
+})
 //---FUNCIONES PARA CARDS DE PRODUCTOS MODAL---//
 const modalProductos= document.getElementById("modal-productos") as HTMLDialogElement;
 const formProducts=document.getElementById("modal-form-productos") as HTMLFormElement;
@@ -307,6 +330,11 @@ modalProductos.addEventListener("submit",(e)=>{
 })
 cancelarProductModal.addEventListener("click",()=>{
     modalProductos.close()
+})
+ modalProductos.addEventListener("click", (event)=>{
+    if(event.target===modalProductos){
+        modalProductos.close();
+    }
 })
 function requestProdustEdit(producto:Product){
     const request=new Request("products.json",{
@@ -355,6 +383,11 @@ function requestProductDelete(product:Product){
 }
 cancelarEliminarProduct.addEventListener("click",()=>{
     modalEliminarProducto.close()
+})
+ modalEliminarProducto.addEventListener("click", (event)=>{
+    if(event.target===modalEliminarProducto){
+        modalEliminarProducto.close();
+    }
 })
 
 ////-----------------------------------------------------VALIDACION DE DATOS DEL FORMULARIO---------------------------------------////

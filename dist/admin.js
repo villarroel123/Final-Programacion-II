@@ -11,6 +11,7 @@ import { Product } from "./Clases/Product.js";
 import { User } from "./Clases/User.js";
 import { fetchProduct } from "./Services/productService.js";
 import { fetchUsers } from "./Services/usersService.js";
+const sectionInicio = document.getElementById("section-inicio");
 const form = document.getElementById("form");
 const inputNames = document.querySelector(".input-nombre");
 const inputMail = document.querySelector(".input-email");
@@ -57,11 +58,14 @@ const sectBienvenida = document.getElementById("sect-bienvenida");
 const bienvenida = document.getElementById("bienvenida");
 function inicioUsuario(nombre) {
     const msjBienvenida = document.createElement("h2");
+    const frase = document.createElement("p");
     msjBienvenida.textContent = `Bienvenido ${nombre} (Administrador)`;
+    frase.textContent = "Ya podés acceder a las herramientas de administración y gestionar el contenido.";
     bienvenida.appendChild(msjBienvenida);
+    bienvenida.appendChild(frase);
     //muestro informacion
     sectBienvenida === null || sectBienvenida === void 0 ? void 0 : sectBienvenida.classList.remove("hide"); //muestro mensaje de bienvenida
-    form.classList.add("hide"); //escondo el formulario
+    sectionInicio.classList.add("hide"); //escondo el formulario
     adminPanel.classList.remove("hide"); //muestro panel de opciones
     cardsUsers(); //muestro en primer lugar las cards de los usuarios
 }
@@ -71,8 +75,8 @@ function accesoDenegado() {
     msjDenegado.textContent = "Acceso denegado, no eres administrador";
     sectBienvenida.appendChild(msjDenegado);
     //muestro informacion
-    sectBienvenida === null || sectBienvenida === void 0 ? void 0 : sectBienvenida.classList.remove("hide"); //muestro mensaje de bienvenida
-    form.classList.add("hide"); //escondo el formulario
+    sectBienvenida === null || sectBienvenida === void 0 ? void 0 : sectBienvenida.classList.remove("hide"); //muestro mensaje
+    sectionInicio.classList.add("hide"); //escondo el formulario
 }
 //---FUNCION DATOS INGRESADOS INCORRECTOS---//
 function datosIncorrectos() {
@@ -88,8 +92,8 @@ function datosIncorrectos() {
 const panelUsuarios = document.getElementById("usuarios");
 const panelProductos = document.getElementById("productos");
 const contenedorUsuarios = document.getElementById("cards-usuarios");
+const menuUsers = document.getElementById("menu-datos-usuarios");
 const contenedorProductos = document.getElementById("cards-productos");
-const overlayModal = document.querySelector(".container-modal");
 //---FUNCION PARA CREAR INSTANCIAS PARA LAS CARDS DE USUARIOS---//
 let stateUser = [];
 function cargaUsuarios() {
@@ -113,21 +117,33 @@ function cardsUsers() {
         stateUser.forEach(user => {
             const card = document.createElement("article");
             const btnEditarUser = document.createElement("button");
+            const nombreUser = document.createElement("h5");
+            const emailUser = document.createElement("h5");
+            const rolUser = document.createElement("h5");
+            const idUser = document.createElement("h5");
+            const passwordUser = document.createElement("h5");
             btnEditarUser.type = "button";
             btnEditarUser.textContent = "Editar";
             const btnEliminarUser = document.createElement("button");
             btnEliminarUser.type = "button";
             btnEliminarUser.textContent = "Eliminar";
-            card.innerHTML = `
-            <p>Nombre: ${user.getName()}</p>
-            <p>Email: ${user.getEmail()}</p>
-            <p>Rol: ${user.getIsAdmin() ? "Admin" : "Usuario"}</p>
-        `;
+            nombreUser.textContent = `${user.getName()}`;
+            emailUser.textContent = `${user.getEmail()}`;
+            rolUser.textContent = `${user.getIsAdmin() ? "Admin" : "Usuario"}`;
+            //agrego clases
+            nombreUser.classList.add("nombre-user-card");
+            emailUser.classList.add("email-user-card");
+            rolUser.classList.add("rol-user-card");
+            card.classList.add("card-user");
+            card.appendChild(nombreUser);
+            card.appendChild(emailUser);
+            card.appendChild(rolUser);
             card.appendChild(btnEditarUser);
             card.appendChild(btnEliminarUser);
             contenedorUsuarios.appendChild(card);
             contenedorUsuarios.classList.remove("hide");
             contenedorProductos.classList.add("hide");
+            menuUsers.classList.remove("hide");
             //conecto funcion para eliminar usuario
             btnEliminarUser.addEventListener("click", () => {
                 eliminarUserConfir(user);
@@ -177,12 +193,12 @@ function productsCards() {
             btn1.textContent = "Editar";
             btn2.textContent = "Eliminar";
             //agrego clases
-            title.classList.add("ad-card-title");
-            price.classList.add("ad-card-price");
-            category.classList.add("ad-card-category");
-            image.classList.add("ad-card-img");
-            description.classList.add("ad-card-descrip");
-            card.classList.add("ad-card");
+            title.classList.add("title-product-card");
+            price.classList.add("price-product-card");
+            category.classList.add("category-product-card");
+            image.classList.add("img-product-card");
+            description.classList.add("desc-product-card");
+            card.classList.add("card-product");
             //agrego al contenedor
             card.appendChild(title);
             card.appendChild(price);
@@ -194,6 +210,7 @@ function productsCards() {
             contenedorProductos.appendChild(card);
             contenedorProductos.classList.remove("hide");
             contenedorUsuarios.classList.add("hide");
+            menuUsers.classList.add("hide");
             //funciones para botones
             btn1.addEventListener("click", () => {
                 editarProducto(product);
@@ -242,8 +259,8 @@ modalUser.addEventListener("submit", (e) => {
 btnCancelarUser.addEventListener("click", () => {
     cerrarModalUser();
 });
-overlayModal.addEventListener("click", (event) => {
-    if (event.target === overlayModal) {
+modalUsuarios.addEventListener("click", (event) => {
+    if (event.target === modalUsuarios) {
         modalUsuarios.close();
     }
 });
@@ -297,6 +314,11 @@ function requestUserDelete(usuario) {
     });
     console.log("REQUEST DELETE USER:", request);
 }
+modalEliminar.addEventListener("click", (event) => {
+    if (event.target === modalEliminar) {
+        modalEliminar.close();
+    }
+});
 //---FUNCIONES PARA CARDS DE PRODUCTOS MODAL---//
 const modalProductos = document.getElementById("modal-productos");
 const formProducts = document.getElementById("modal-form-productos");
@@ -329,6 +351,11 @@ modalProductos.addEventListener("submit", (e) => {
 });
 cancelarProductModal.addEventListener("click", () => {
     modalProductos.close();
+});
+modalProductos.addEventListener("click", (event) => {
+    if (event.target === modalProductos) {
+        modalProductos.close();
+    }
 });
 function requestProdustEdit(producto) {
     const request = new Request("products.json", {
@@ -378,6 +405,11 @@ function requestProductDelete(product) {
 }
 cancelarEliminarProduct.addEventListener("click", () => {
     modalEliminarProducto.close();
+});
+modalEliminarProducto.addEventListener("click", (event) => {
+    if (event.target === modalEliminarProducto) {
+        modalEliminarProducto.close();
+    }
 });
 ////-----------------------------------------------------VALIDACION DE DATOS DEL FORMULARIO---------------------------------------////
 //Verifico nombre

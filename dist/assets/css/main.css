@@ -144,12 +144,25 @@ h1, h2, h3, h4, h5, h6 {
 .h-100vh{
     height: 100vh;
 }
+.h-70{
+    height: 70vh;
+}
 /*MARGINS*/
 .m-1{
     margin:0 1em;
 }
 .m-2{
     margin: 2em;
+}
+.mt-2{
+    margin-top: 2em;
+}
+/*PADDINS*/
+.p-1{
+    padding: 1em;
+}
+.p-2{
+    padding: 2em;
 }
 /*TIPOGRAFIAS*/
 .fs-1-5{
@@ -160,6 +173,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .fs-3{
     font-size: 3em;
+}
+.fs-3-5{
+    font-size: 3.5em;
+}
+.fs-4{
+    font-size: 4em;
 }
 .ta-center{
     text-align: center;
@@ -229,12 +248,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /*Clases del html*/
 .section-header{
-    
     height: 8vh;
 }
-
-
-
 /*SLIDER*/
 .slider{
     height: 100vh;
@@ -383,23 +398,125 @@ padding: 0.5em;
     display: none;
 }
 /*Form*/
-input:invalid {
-  border: 2px dashed red;
-}
-/*CARDS PRODUCTOS*/
 
-.ad-card-img{
+.section-form{
+    min-height: 100vh; 
+    background-image: url("../images/fondo-inicio-form.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.form li{
+    padding: 0.5em 0;
+    width: 80%;
+}
+.form input{
+    padding: 0 1em;
+    border: 0.1em solid rgba(246, 240, 237, 0.1);
+    background: none;
+    border-radius: 2em;
+}
+.blur{
+  background: linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0));
+  backdrop-filter: blur(10em);
+  -webkit-backdrop-filter: blur(20em);
+  border: 0.1em solid rgba(255,255,255,0.2);
+  box-shadow: 0 10em 10em 0 rgba(0,0,0,0.3);
+}
+.form-container{
+    padding: 3em;
+    border-radius: 1em;
+}
+.boton-form{
+    width: 50%;
+    background-color: #4C0303;
+    border: transparent;
+    border-radius: 1em;
+    padding: 0.3em 0;
+    margin-top: 1em;
+}
+
+
+#admin-panel{
+    /* height: 100%;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url("../images/fondo-admin.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color: #F6F0ED;
+    min-height: 100vh; 
+}
+.contenedor-admin{
+    width: 70%;
+    height: 100%;
+}
+.contenido-admin{
+    margin-top: 2em;
+    border-radius: 2em;
+    overflow: hidden;
+}
+.subcategoria{
+    overflow: hidden;
+}
+/*BIENVENIDA*/
+#sect-bienvenida{
+    min-height: 20vh;
+    border-radius: 2em;
+    padding: 3em;
+    background-image: url("../images/fondo-bienvenida.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#sect-bienvenida h2{
+    font-size: 3em;
+}
+#sect-bienvenida p{
+    font-size: 1.5em;
+}
+.icono-edit{
+   width: 10em;
+}
+/*---------------CARDS DE USUARIOS---------------*/
+.card-user{
+    background-color: #F6F0ED;
+    border-radius: 1em;
+    border: transparent;
+    padding: 1em;
+    margin: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+.nombre-user-card{
+    color: #10100F;
+    font-size: 1.3em;
+}
+.email-user-card{
+    font-size: 1.3em;
+}
+.rol-user-card{
+    font-size: 1.3em;
+}
+/*---------------CARDS PRODUCTOS-----------------*/
+.img-product-card{
     width: 10em;
 }
+.card-product{
+    padding: 1em;
+    margin: 1em;
+    background-color: #F6F0ED;
+    border-radius: 1em;
+    
+}
+
+
+
 
 /*MODALS*/
 
 #modal-usuarios::backdrop{
     background-color: rgba(0, 0, 0, 0.8);
 }
-.container-modal{
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 1000000;
-}
+
